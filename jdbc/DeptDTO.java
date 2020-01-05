@@ -21,6 +21,11 @@ public class DeptDTO {
 		this.dname = dname;
 		this.loc_code = loc_code;
 	}
+	//delete¿ë
+	public DeptDTO(int deptno) {
+		super();
+		this.deptno = deptno;
+	}
 	@Override
 	public String toString() {
 		return "DeptDTO [deptno=" + deptno + ", dname=" + dname + ", loc_code=" + loc_code + "]";

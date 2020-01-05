@@ -22,7 +22,7 @@ public class DBUtill {
 		String password = "tiger";
 	
 		try {
-			con = DriverManager.getConnection(url);
+			con = DriverManager.getConnection(url,user,password);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}

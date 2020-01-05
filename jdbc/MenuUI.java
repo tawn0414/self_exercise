@@ -37,11 +37,13 @@ public class MenuUI {
 	
 	public void updateMenu() {
 		System.out.println("부서정보수정");
-		System.out.print("부서이름:");
+		System.out.print("부서번호:");
+		int deptno = key.nextInt();
+		System.out.print("수정할 부서이름:");
 		String dname = key.next();
-		System.out.print("지역코드:");
+		System.out.print("수정할 지역코드:");
 		String loc_code = key.next();
-		DeptDTO dept = new DeptDTO(dname, loc_code);
+		DeptDTO dept = new DeptDTO(deptno, dname, loc_code);
 		int result = dao.update(dept);
 		if(result>0) {
 			System.out.println("부서수정 성공");
@@ -54,12 +56,7 @@ public class MenuUI {
 		System.out.println("부서삭제");
 		System.out.print("부서번호:");
 		int deptno = key.nextInt();
-		System.out.print("부서이름:");
-		String dname = key.next();
-		System.out.print("지역코드:");
-		String loc_code = key.next();
-		DeptDTO dept = new DeptDTO(deptno, dname, loc_code);
-		int result = dao.insert(dept);
+		int result = dao.delete(deptno);
 		if(result>0) {
 			System.out.println("부서삭제 성공");
 		}else {

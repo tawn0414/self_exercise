@@ -59,7 +59,7 @@ public class DeptDAOImpl implements DeptDAO{
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
-		String sql = "update dept set dname= ? and loc_code = ? where deptno = ?";
+		String sql = "update dept set dname= ?, loc_code = ? where deptno = ?";
 		int result = 0;
 		try {
 			con = DBUtill.getConnection();
@@ -78,7 +78,7 @@ public class DeptDAOImpl implements DeptDAO{
 	}
 
 	@Override
-	public int delete(String deptno) {
+	public int delete(int deptno) {
 		Connection con = null;
 		PreparedStatement ptmt = null;
 		ResultSet rs = null;
@@ -87,7 +87,7 @@ public class DeptDAOImpl implements DeptDAO{
 		try {
 			con = DBUtill.getConnection();
 			ptmt = con.prepareStatement(sql);
-			ptmt.setString(1, deptno);
+			ptmt.setInt(1, deptno);
 			result = ptmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
